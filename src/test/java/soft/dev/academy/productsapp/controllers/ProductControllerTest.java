@@ -8,23 +8,26 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import soft.dev.academy.productsapp.services.ProductService;
-
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
-
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-
 public class ProductControllerTest {
 
     @Autowired
-    private ProductController productController;
+    private MockMvc mockMvc;
 
-    @Autowired
-    private ProductService productService;
-
+   @Test
+    public void shouldFindById() throws Exception{
+       mockMvc.perform(get("/products/1")).andDo(print())
+               .andExpect(status().isOk())
+               .andExpect(jsonPath("$.name", is("butter")));
+   }
 
 
 
