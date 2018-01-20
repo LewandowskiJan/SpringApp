@@ -15,7 +15,7 @@ public class ProductWebController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(value = "/products-web")
+    @RequestMapping(value = "/products-web/")
     public String findProducts(Model model) {
         List<ProductDto> productsDto = productService.findAll();
 
