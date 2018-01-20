@@ -4,11 +4,13 @@ import org.springframework.stereotype.Component;
 import soft.dev.academy.productsapp.dto.ProductDto;
 import soft.dev.academy.productsapp.entity.Product;
 
-@Component
-public class ProductDtoConverterImpl implements ProductDtoConverter {
+import java.util.function.Function;
 
+@Component
+public class ProductDtoConverterImpl implements Function<Product, ProductDto> {
+    
     @Override
-    public ProductDto convert(Product product) {
+    public ProductDto apply(Product product) {
         ProductDto productDto = new ProductDto();
 
         productDto.setId(product.getId());
@@ -18,5 +20,4 @@ public class ProductDtoConverterImpl implements ProductDtoConverter {
 
         return productDto;
     }
-
 }

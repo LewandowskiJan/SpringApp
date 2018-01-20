@@ -1,0 +1,13 @@
+package soft.dev.academy.productsapp.services;
+
+import soft.dev.academy.productsapp.dto.ProductDto;
+
+
+import java.util.List;
+
+public interface ProductService {
+
+    public List<ProductDto> findAll();
+
+
+}
