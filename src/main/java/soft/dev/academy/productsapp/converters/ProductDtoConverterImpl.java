@@ -7,8 +7,22 @@ import soft.dev.academy.productsapp.entity.Product;
 import java.util.function.Function;
 
 @Component
-public class ProductDtoConverterImpl implements Function<Product, ProductDto> {
-    
+public class ProductDtoConverterImpl implements ProductDtoConverter /* Function<Product, ProductDto> */{
+
+
+
+    @Override
+    public ProductDto convert(Product product) {
+        ProductDto productDto = new ProductDto();
+
+        productDto.setId(product.getId());
+        productDto.setName(product.getName());
+        productDto.setType(product.getType().name());
+        productDto.setQuantity(product.getQuantity());
+
+        return productDto;
+    }
+/*
     @Override
     public ProductDto apply(Product product) {
         ProductDto productDto = new ProductDto();
@@ -20,4 +34,5 @@ public class ProductDtoConverterImpl implements Function<Product, ProductDto> {
 
         return productDto;
     }
+    */
 }
