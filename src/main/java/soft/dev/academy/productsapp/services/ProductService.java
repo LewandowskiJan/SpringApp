@@ -8,6 +8,7 @@ import java.util.List;
 public interface ProductService {
 
     public List<ProductDto> findAll();
+    public ProductDto findById(Integer id);
 
 
 }

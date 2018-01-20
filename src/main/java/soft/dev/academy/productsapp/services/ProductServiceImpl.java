@@ -1,11 +1,11 @@
-package soft.dev.academy.productsapp.repository;
+package soft.dev.academy.productsapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import soft.dev.academy.productsapp.converters.ProductDtoConverter;
-import soft.dev.academy.productsapp.converters.ProductDtoConverterImpl;
 import soft.dev.academy.productsapp.dto.ProductDto;
-import soft.dev.academy.productsapp.services.ProductService;
+import soft.dev.academy.productsapp.entity.Product;
+import soft.dev.academy.productsapp.repository.ProductRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,4 +30,11 @@ public class ProductServiceImpl implements ProductService{
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public ProductDto findById(Integer id) {
+        Product product = productRepository.findOne(id);
+        return productDtoConverter.convert(product);
+    }
+
 }
