@@ -11,7 +11,7 @@ import soft.dev.academy.productsapp.services.ProductService;
 import java.util.List;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("/products")
 public class ProductController {
 
     @Autowired
