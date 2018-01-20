@@ -47,4 +47,12 @@ public class ProductRepositoryTest {
         Product productFromDatabase = productRepository.findOne(3);
         new ProductAssert(productFromDatabase).hasName("wine").hasQuantity(4);
     }
+
+    @Test
+    public void shouldFindByName(){
+        List<Product> products = productRepository.findByName("water");
+        Assert.assertEquals(1, products.size());
+
+    }
+
 }
