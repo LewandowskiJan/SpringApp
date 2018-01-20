@@ -21,7 +21,7 @@ public class ProductWebController {
     public ModelAndView findProducts() {
         List<ProductDto> productsDto = productService.findAll();
         ModelAndView modelAndView = new ModelAndView();
-        Map<String, Object> model = new HashMap<String, Object>();
+        Map<String, Object> model = new HashMap<String,Object>();
         model.put("productList", productsDto);
 
         return new ModelAndView("products", model);
