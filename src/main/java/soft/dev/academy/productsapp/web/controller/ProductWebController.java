@@ -26,9 +26,9 @@ public class ProductWebController {
     }
 
     @RequestMapping(value = "/products-web/{id}")
-    public String findProduct(@PathVariable Integer id, Map<String, Object> model){
+    public String editProduct(@PathVariable Integer id, Map<String, Object> model){
         ProductDto productDto = productService.findById(id);
-        model.put("product", productDto);
+        model.put("productModel", productDto);
         return "editProduct";
     }
 
