@@ -19,6 +19,11 @@
 
 <body>
 <h2>Edit product</h2>
+
+<c:if test="${not empty errorMessage}">
+    <div>${errorMessage}</div>
+</c:if>
+
 <form:form method="post" modelAttribute="productModel" action="/products-web/save">
     <table>
         <tr>
