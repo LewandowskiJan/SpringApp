@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>products-app</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Product App</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -44,11 +44,16 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
 
 	</dependencies>
