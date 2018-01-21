@@ -13,4 +13,5 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
     public List<Product> findByNameAndQuantity(String name, Integer quantity);
 
+
 }

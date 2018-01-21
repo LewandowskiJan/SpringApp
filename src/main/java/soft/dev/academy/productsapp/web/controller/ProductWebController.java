@@ -1,6 +1,7 @@
 package soft.dev.academy.productsapp.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import soft.dev.academy.productsapp.dto.ProductDto;
 import soft.dev.academy.productsapp.entity.Product;
 import soft.dev.academy.productsapp.entity.ProductType;
+import soft.dev.academy.productsapp.exceptions.ProductNameExists;
 import soft.dev.academy.productsapp.services.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,9 @@ public class ProductWebController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private MessageSource messageSource;
 
     @RequestMapping(value = "/products-web/list", produces = MediaType.TEXT_HTML_VALUE, method = RequestMethod.GET)
     public String findProducts(Map<String, Object> model) {
@@ -55,8 +60,11 @@ public class ProductWebController {
             model.put("productModel", productDto);
             return "editProduct";
         } else {
+            try{
+                productService.save(productDto);
+            } catch (ProductNameExists e){
 
-            productService.save(productDto);
+            }
             return "redirect:/products-web/list";
         }
     }
