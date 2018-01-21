@@ -32,6 +32,6 @@
         </c:forEach>
     </table>
     <br/>
-    <a href="<c:url value='/new' />">Add new product</a>
+    <a href="<c:url value='/products-web/new' />">Add new product</a>
 </body>
 </html>
