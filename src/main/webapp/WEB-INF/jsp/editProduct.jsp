@@ -24,17 +24,14 @@
         <tr>
             <td>Name</td>
             <td><form:input path="name" id="name" /></td>
-            <td>${productModel.name}</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Product type</td>
+            <td><form:input path="type" id="type" /></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Quantity</td>
+            <td><form:input path="quantity" id="quantity" /></td>
         </tr>
     </table>
 </form:form>
