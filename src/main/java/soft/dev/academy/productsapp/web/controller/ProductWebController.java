@@ -5,10 +5,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import soft.dev.academy.productsapp.dto.ProductDto;
 import soft.dev.academy.productsapp.entity.ProductType;
 import soft.dev.academy.productsapp.exceptions.ProductNameExists;
@@ -30,10 +27,15 @@ public class ProductWebController {
     private MessageSource messageSource;
 
     @RequestMapping(value = "/products-web/list", produces = MediaType.TEXT_HTML_VALUE, method = RequestMethod.GET)
-    public String findProducts(Map<String, Object> model) {
-        List<ProductDto> productsDto = productService.findAll();
+    public String findProducts(
+            @RequestParam(value = "productName", required = false) String productName,
+            @RequestParam(value = "productType", required = false) String productType,
+            Map<String, Object> model) {
+
+        List<ProductDto> productsDto = productService.findByNameAndType(productName, productType);
         model.put("productList", productsDto);
         return "products";
+
     }
 
     @RequestMapping(value = "/products-web/edit/{id}")

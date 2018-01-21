@@ -6,6 +6,7 @@ import org.springframework.util.CollectionUtils;
 import soft.dev.academy.productsapp.converters.ProductDtoConverter;
 import soft.dev.academy.productsapp.dto.ProductDto;
 import soft.dev.academy.productsapp.entity.Product;
+import soft.dev.academy.productsapp.entity.ProductType;
 import soft.dev.academy.productsapp.exceptions.ProductNameExists;
 import soft.dev.academy.productsapp.repository.ProductRepository;
 
@@ -63,4 +64,16 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<ProductDto> findByNameAndType(String name, String type) {
+        ProductType productType = null;
+        if (type!=null){
+            productType = ProductType.valueOf(type);
+        }
+
+        return StreamSupport
+                .stream(productRepository.findByNameAndType(name, productType).spliterator(), false)
+                .map(product -> productDtoConverter.convert(product))
+                .collect(Collectors.toList());
+    }
 }
