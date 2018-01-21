@@ -6,5 +6,6 @@ import soft.dev.academy.productsapp.entity.Product;
 public interface ProductDtoConverter {
 
     public ProductDto convert(Product product);
+    public Product convertDto(ProductDto productDto);
 
 }

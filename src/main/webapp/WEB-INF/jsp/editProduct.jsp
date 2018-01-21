@@ -19,7 +19,7 @@
 
 <body>
 <h2>Edit product</h2>
-<form:form method="post" modelAttribute="productModel" action="">
+<form:form method="post" modelAttribute="productModel" action="/products-web/save">
     <table>
         <tr>
             <td>Name</td>
@@ -33,6 +33,11 @@
             <td>Quantity</td>
             <td><form:input path="quantity" id="quantity" /></td>
         </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update Product"/></td>
+        </tr>
+        <form:hidden path="id" id="id" />
     </table>
 </form:form>
 
