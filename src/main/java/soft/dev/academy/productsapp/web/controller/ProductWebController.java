@@ -10,16 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import soft.dev.academy.productsapp.dto.ProductDto;
-import soft.dev.academy.productsapp.entity.Product;
 import soft.dev.academy.productsapp.entity.ProductType;
 import soft.dev.academy.productsapp.exceptions.ProductNameExists;
 import soft.dev.academy.productsapp.services.ProductService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 @Controller
@@ -39,7 +37,7 @@ public class ProductWebController {
     }
 
     @RequestMapping(value = "/products-web/edit/{id}")
-    public String editProduct(@PathVariable Integer id, Map<String, Object> model){
+    public String editProduct(@PathVariable Integer id, Map<String, Object> model) {
         ProductDto productDto = productService.findById(id);
         Map<String, String> productTypes = getProductTypesAsMap();
 
@@ -52,26 +50,31 @@ public class ProductWebController {
     @RequestMapping(value = "/products-web/save", method = RequestMethod.POST)
     public String saveProduct(@Valid @ModelAttribute(value = "productModel") ProductDto productDto,
                               BindingResult result,
-                              Map<String, Object> model){
+                              Map<String, Object> model) {
+        Map<String, String> productTypes = getProductTypesAsMap();
+        model.put("productTypes", productTypes);
+        model.put("productModel", productDto);
 
-        if (result.hasErrors()){
-            Map<String, String> productTypes = getProductTypesAsMap();
-            model.put("productTypes", productTypes);
-            model.put("productModel", productDto);
+        if (result.hasErrors()) {
             return "editProduct";
         } else {
-            try{
+            try {
                 productService.save(productDto);
-            } catch (ProductNameExists e){
-
+            } catch (ProductNameExists e) {
+                model.put("errorMessage",
+                        messageSource.getMessage(
+                                "productModel.nameExists",
+                                new String[]{productDto.getName()},
+                                Locale.getDefault()));
+                return "editProduct";
             }
             return "redirect:/products-web/list";
         }
     }
 
     @RequestMapping(value = "/products-web/new", method = RequestMethod.GET)
-    public String addProduct(Map<String, Object> model){
-        Map<String,String> productTypes = getProductTypesAsMap();
+    public String addProduct(Map<String, Object> model) {
+        Map<String, String> productTypes = getProductTypesAsMap();
 
         model.put("productModel", new ProductDto());
         model.put("productTypes", productTypes);
@@ -80,7 +83,7 @@ public class ProductWebController {
     }
 
     @RequestMapping(value = "/products-web/delete/{id}", method = RequestMethod.GET)
-    public String deleteProduct(@PathVariable Integer id, Map<String, Object> model){
+    public String deleteProduct(@PathVariable Integer id, Map<String, Object> model) {
 
         productService.delete(id);
 
@@ -91,7 +94,7 @@ public class ProductWebController {
     private Map<String, String> getProductTypesAsMap() {
         Map<String, String> productTypes = new HashMap<String, String>();
 
-        for (ProductType productType : ProductType.values()){
+        for (ProductType productType : ProductType.values()) {
             productTypes.put(productType.name(), productType.getValue());
         }
         return productTypes;
