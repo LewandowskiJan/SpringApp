@@ -23,25 +23,33 @@
     <table>
         <tr>
             <td>Name</td>
-            <td><form:input path="name" id="name" /></td>
+            <td><form:input path="name" id="name"/></td>
         </tr>
         <tr>
             <td>Product type</td>
-            <td><form:input path="type" id="type" /></td>
+            <td><form:select path="type" id="type" items="${productTypes}" /></td>
         </tr>
         <tr>
             <td>Quantity</td>
-            <td><form:input path="quantity" id="quantity" /></td>
+            <td><form:input path="quantity" id="quantity"/></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Update Product"/></td>
+            <td>
+                <c:choose>
+                    <c:when test="${edit}">
+                        <input type="submit" value="Update Product"/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="submit" value="Add Product"/>
+                    </c:otherwise>
+                </c:choose>
+
+            </td>
         </tr>
-        <form:hidden path="id" id="id" />
+        <form:hidden path="id" id="id"/>
     </table>
 </form:form>
-
-
 
 
 </body>

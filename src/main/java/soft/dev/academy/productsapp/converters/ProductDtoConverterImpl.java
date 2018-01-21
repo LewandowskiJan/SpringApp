@@ -18,7 +18,7 @@ public class ProductDtoConverterImpl implements ProductDtoConverter /* Function<
 
         productDto.setId(product.getId());
         productDto.setName(product.getName());
-        productDto.setType(product.getType().name());
+        productDto.setType(product.getType().getValue());
         productDto.setQuantity(product.getQuantity());
 
         return productDto;
