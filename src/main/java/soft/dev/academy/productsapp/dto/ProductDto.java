@@ -1,14 +1,22 @@
 package soft.dev.academy.productsapp.dto;
 
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class ProductDto {
 
     private Integer id;
 
+    @NotNull
+    @Size(min = 3, max = 10)
     private String name;
 
     private String type;
 
+    @NotNull
+    @Min(value = 1)
     private Integer quantity;
 
     public ProductDto() {

@@ -3,6 +3,7 @@ package soft.dev.academy.productsapp.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import soft.dev.academy.productsapp.services.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,11 +45,20 @@ public class ProductWebController {
     }
 
     @RequestMapping(value = "/products-web/save", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute(value = "productModel") ProductDto productDto){
+    public String saveProduct(@Valid @ModelAttribute(value = "productModel") ProductDto productDto,
+                              BindingResult result,
+                              Map<String, Object> model){
 
-        productService.save(productDto);
+        if (result.hasErrors()){
+            Map<String, String> productTypes = getProductTypesAsMap();
+            model.put("productTypes", productTypes);
+            model.put("productModel", productDto);
+            return "editProduct";
+        } else {
 
-        return "redirect:/products-web/list";
+            productService.save(productDto);
+            return "redirect:/products-web/list";
+        }
     }
 
     @RequestMapping(value = "/products-web/new", method = RequestMethod.GET)

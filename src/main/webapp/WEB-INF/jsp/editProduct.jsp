@@ -24,6 +24,7 @@
         <tr>
             <td>Name</td>
             <td><form:input path="name" id="name"/></td>
+            <td><form:errors path="name" id="name"/></td>
         </tr>
         <tr>
             <td>Product type</td>
@@ -32,6 +33,7 @@
         <tr>
             <td>Quantity</td>
             <td><form:input path="quantity" id="quantity"/></td>
+            <td><form:errors path="quantity" id="quantity"/></td>
         </tr>
         <tr>
             <td></td>
