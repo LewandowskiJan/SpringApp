@@ -27,7 +27,7 @@
             <td>${product.name}</td>
             <td>${product.quantity}</td>
             <td>${product.type}</td>
-            <td><a href="<c:url value='/edit-${employee.ssn}-employee' />">${product.id}</a></td>
+            <td><a href="<c:url value='/products-web/edit/${product.id}' />">Edit</a></td>
             </tr>
         </c:forEach>
     </table>

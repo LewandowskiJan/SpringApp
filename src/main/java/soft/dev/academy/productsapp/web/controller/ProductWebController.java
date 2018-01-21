@@ -21,7 +21,7 @@ public class ProductWebController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(value = "/products-web/", produces = MediaType.TEXT_HTML_VALUE, method = RequestMethod.GET)
+    @RequestMapping(value = "/products-web/list", produces = MediaType.TEXT_HTML_VALUE, method = RequestMethod.GET)
     public String findProducts(Map<String, Object> model) {
         List<ProductDto> productsDto = productService.findAll();
         model.put("productList", productsDto);
@@ -37,9 +37,19 @@ public class ProductWebController {
 
     @RequestMapping(value = "/products-web/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute(value = "productModel") ProductDto productDto){
-        
 
-        return "saveProduct";
+        productService.save(productDto);
+
+        return "redirect:/products-web/list";
     }
+
+    @RequestMapping(value = "/products-web/new", method = RequestMethod.GET)
+    public String addProduct(Map<String, Object> model){
+        model.put("productModel", new ProductDto());
+
+
+        return "editProduct";
+    }
+
 
 }

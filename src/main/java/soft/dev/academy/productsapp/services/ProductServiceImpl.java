@@ -39,7 +39,8 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public void save(ProductDto productDto) {
-
+        Product product = productDtoConverter.convertDto(productDto);
+        productRepository.save(product);
     }
 
 }
