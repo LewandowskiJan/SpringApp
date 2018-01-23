@@ -32,7 +32,8 @@ public class ProductWebController {
             @RequestParam(value = "productType", required = false) String productType,
             Map<String, Object> model) {
 
-        List<ProductDto> productsDto = productService.findByNameAndType(productName, productType);
+        List<ProductDto> productsDto = productService.findAll();
+        //List<ProductDto> productsDto = productService.findByNameAndType(productName, productType);
         model.put("productList", productsDto);
         return "products";
 
