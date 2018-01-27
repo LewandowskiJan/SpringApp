@@ -3,6 +3,7 @@ package soft.dev.academy.productsapp.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import soft.dev.academy.productsapp.converters.ProductDtoConverter;
 import soft.dev.academy.productsapp.dto.ProductDto;
 import soft.dev.academy.productsapp.entity.Product;
@@ -74,10 +75,10 @@ public class ProductServiceImpl implements ProductService {
 
 
         ProductType productType = null;
-        if (type != null) {
+        if (!StringUtils.isEmpty(type)) {
             productType = ProductType.valueOf(type);
+            filterProduct.setType(productType);
         }
-        filterProduct.setType(productType);
 
         return StreamSupport
                 .stream(productRepository.findAll(new ProductSpecification(filterProduct)).spliterator(), true)

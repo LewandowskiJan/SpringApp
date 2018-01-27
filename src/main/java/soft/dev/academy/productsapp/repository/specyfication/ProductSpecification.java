@@ -15,7 +15,8 @@ public class ProductSpecification implements Specification<Product> {
 
     private Product product;
 
-
+    // TO DO if we need to add 2 field "more than" "less than"
+    // TO DO we should create ProductDtoSearcher with field lessTan and moreThan
     public ProductSpecification(Product filter) {
         this.product = filter;
     }
@@ -27,10 +28,15 @@ public class ProductSpecification implements Specification<Product> {
 
         Predicate p = criteriaBuilder.and();
 
-        if (StringUtils.isEmpty(product.getName())) {
+        if (!StringUtils.isEmpty(product.getName())) {
             p.getExpressions().add(criteriaBuilder.like(
-                    root.get("name"), product.getName()));
+                    root.get("name"), "%" + product.getName() + "%"));
         }
+
+        if (product.getType() != null){
+            p.getExpressions().add(criteriaBuilder.equal(root.get("type"), product.getType()));
+        }
+
         return p;
     }
 }
