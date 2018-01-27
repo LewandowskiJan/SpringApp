@@ -9,6 +9,7 @@ import soft.dev.academy.productsapp.entity.Product;
 import soft.dev.academy.productsapp.entity.ProductType;
 import soft.dev.academy.productsapp.exceptions.ProductNameExists;
 import soft.dev.academy.productsapp.repository.ProductRepository;
+import soft.dev.academy.productsapp.repository.specyfication.ProductSpecification;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,13 +67,20 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> findByNameAndType(String name, String type) {
+
+        //assign product filters
+        Product filterProduct = new Product();
+        filterProduct.setName(name);
+
+
         ProductType productType = null;
-        if (type!=null){
+        if (type != null) {
             productType = ProductType.valueOf(type);
         }
+        filterProduct.setType(productType);
 
         return StreamSupport
-                .stream(productRepository.findByNameAndType(name, productType).spliterator(), false)
+                .stream(productRepository.findAll(new ProductSpecification(filterProduct)).spliterator(), true)
                 .map(product -> productDtoConverter.convert(product))
                 .collect(Collectors.toList());
     }

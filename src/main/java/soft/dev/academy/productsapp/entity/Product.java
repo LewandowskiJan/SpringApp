@@ -21,12 +21,29 @@ public class Product {
     public Product() {
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(ProductType type) {
+        this.type = type;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
     public Product(Integer id, String name, ProductType type, Integer quantity) {
 
         this.id = id;
         this.name = name;
         this.type = type;
         this.quantity = quantity;
+
     }
 
 
