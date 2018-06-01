@@ -6,10 +6,18 @@
 
     <!-- Define your beans here -->
 
+    <!-- define the dependency -->
+    <bean id="myFortuneService"
+          class="soft.dev.academy.coachapp.HappyFortuneService">
+    </bean>
+
     <bean id="myCoach"
           class="soft.dev.academy.coachapp.TrackCoach">
 
+        <!-- setup constructor injection -->
+        <constructor-arg ref="myFortuneService"/>
     </bean>
+
 
 </beans>
 
