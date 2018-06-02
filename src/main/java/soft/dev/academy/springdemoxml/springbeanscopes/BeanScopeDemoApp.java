@@ -1,7 +1,7 @@
-package soft.dev.academy.coachapp.springbeanscopes;
+package soft.dev.academy.springdemoxml.springbeanscopes;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import soft.dev.academy.coachapp.Coach;
+import soft.dev.academy.springdemoxml.Coach;
 
 
 public class BeanScopeDemoApp {

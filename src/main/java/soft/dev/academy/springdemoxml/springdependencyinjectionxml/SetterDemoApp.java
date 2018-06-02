@@ -1,4 +1,4 @@
-package soft.dev.academy.coachapp.springdependencyinjectionxml;
+package soft.dev.academy.springdemoxml.springdependencyinjectionxml;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

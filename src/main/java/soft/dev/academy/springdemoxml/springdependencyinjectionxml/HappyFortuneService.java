@@ -1,6 +1,6 @@
-package soft.dev.academy.coachapp.springdependencyinjectionxml;
+package soft.dev.academy.springdemoxml.springdependencyinjectionxml;
 
-import soft.dev.academy.coachapp.FortuneService;
+import soft.dev.academy.springdemoxml.FortuneService;
 
 public class HappyFortuneService implements FortuneService {
 

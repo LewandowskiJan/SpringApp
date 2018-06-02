@@ -1,4 +1,4 @@
-package soft.dev.academy.coachapp;
+package soft.dev.academy.springdemoxml;
 
 public interface Coach {
 

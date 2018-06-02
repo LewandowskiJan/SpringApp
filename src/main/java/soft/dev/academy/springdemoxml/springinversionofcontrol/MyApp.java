@@ -1,6 +1,6 @@
-package soft.dev.academy.coachapp.springinversionofcontrol;
+package soft.dev.academy.springdemoxml.springinversionofcontrol;
 
-import soft.dev.academy.coachapp.Coach;
+import soft.dev.academy.springdemoxml.Coach;
 
 public class MyApp {
 
