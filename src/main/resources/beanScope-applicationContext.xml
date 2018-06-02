@@ -13,7 +13,8 @@
     </bean>
 
     <bean id="myCoach"
-          class="soft.dev.academy.coachapp.springinversionofcontrol.TrackCoach">
+          class="soft.dev.academy.coachapp.springinversionofcontrol.TrackCoach"
+    scope="prototype">
 
         <!-- setup constructor injection -->
         <constructor-arg ref="myFortuneService"/>
