@@ -1,4 +1,7 @@
-package soft.dev.academy.coachapp;
+package soft.dev.academy.coachapp.springdependencyinjectionxml;
+
+import soft.dev.academy.coachapp.Coach;
+import soft.dev.academy.coachapp.FortuneService;
 
 public class CricketCoach implements Coach {
 

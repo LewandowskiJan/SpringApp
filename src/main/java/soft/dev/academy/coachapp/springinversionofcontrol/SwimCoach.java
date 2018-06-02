@@ -1,4 +1,6 @@
-package soft.dev.academy.coachapp;
+package soft.dev.academy.coachapp.springinversionofcontrol;
+
+import soft.dev.academy.coachapp.Coach;
 
 public class SwimCoach implements Coach {
 

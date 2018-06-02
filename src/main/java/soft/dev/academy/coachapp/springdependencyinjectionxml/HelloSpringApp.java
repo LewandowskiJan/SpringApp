@@ -1,6 +1,7 @@
-package soft.dev.academy.coachapp;
+package soft.dev.academy.coachapp.springdependencyinjectionxml;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import soft.dev.academy.coachapp.Coach;
 
 
 public class HelloSpringApp {

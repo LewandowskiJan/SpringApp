@@ -1,4 +1,7 @@
-package soft.dev.academy.coachapp;
+package soft.dev.academy.coachapp.springinversionofcontrol;
+
+import soft.dev.academy.coachapp.Coach;
+import soft.dev.academy.coachapp.FortuneService;
 
 public class TrackCoach implements Coach {
 
