@@ -14,7 +14,8 @@
 
     <bean id="myCoach"
           class="soft.dev.academy.coachapp.springbeanscopes.SwimCoach"
-    scope="prototype">
+          init-method="doMyStartupStuff"
+          destroy-method="doMyCleanupStuff">
 
         <!-- setup constructor injection -->
         <constructor-arg ref="myFortuneService"/>
