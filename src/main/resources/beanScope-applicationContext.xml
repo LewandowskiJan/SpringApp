@@ -9,11 +9,11 @@
 
     <!-- define the dependency -->
     <bean id="myFortuneService"
-          class="soft.dev.academy.coachapp.HappyFortuneService">
+          class="soft.dev.academy.coachapp.springdependencyinjectionxml.HappyFortuneService">
     </bean>
 
     <bean id="myCoach"
-          class="soft.dev.academy.coachapp.TrackCoach">
+          class="soft.dev.academy.coachapp.springinversionofcontrol.TrackCoach">
 
         <!-- setup constructor injection -->
         <constructor-arg ref="myFortuneService"/>
