@@ -1,13 +1,14 @@
 package soft.dev.academy.springdemoannotation.configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import soft.dev.academy.springdemoannotation.Coach;
 import soft.dev.academy.springdemoannotation.FortuneService;
 
 @Configuration
 //@ComponentScan("soft.dev.academy.springdemoannotation")
+@PropertySource("classpath:sport.properties")
 public class SportConfig {
 
     // define bean for our sad fortune service
