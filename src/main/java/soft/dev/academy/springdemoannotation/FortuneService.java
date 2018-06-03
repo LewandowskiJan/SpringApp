@@ -1,6 +1,6 @@
 package soft.dev.academy.springdemoannotation;
 
-public interface FortuneServie {
+public interface FortuneService {
 
     String getFortune();
 

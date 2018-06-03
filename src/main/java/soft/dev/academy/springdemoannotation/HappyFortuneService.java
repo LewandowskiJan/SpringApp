@@ -3,7 +3,7 @@ package soft.dev.academy.springdemoannotation;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HappyFortuneService implements FortuneServie {
+public class HappyFortuneService implements FortuneService {
 
     @Override
     public String getFortune() {
