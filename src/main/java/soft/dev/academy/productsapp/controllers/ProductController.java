@@ -11,7 +11,7 @@ package soft.dev.academy.productsapp.controllers;
         import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("jsp/products")
 public class ProductController {
 
     @Autowired
