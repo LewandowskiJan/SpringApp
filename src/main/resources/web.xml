@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
 
-	<display-name>spring-mvc-demo</display-name>
+	<display-name>springmvc</display-name>
 
 	<!-- Spring MVC Configs -->
 
@@ -19,10 +19,10 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<!-- Step 2: Set up URL mapping for Spring MVC Dispatcher Servlet -->
-	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-	
+    <!-- Step 2: Set up URL mapping for Spring MVC Dispatcher Servlet -->
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
 </web-app>
