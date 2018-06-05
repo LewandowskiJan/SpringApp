@@ -1,4 +1,3 @@
-<jsp:useBean id="message" scope="request" type=""/>
 <%--
   Created by IntelliJ IDEA.
   User: JL
