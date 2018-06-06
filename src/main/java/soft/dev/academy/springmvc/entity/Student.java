@@ -13,6 +13,8 @@ public class Student {
 
     private String favouriteLanguage;
 
+    private String[] operatingSystems;
+
     public Student() {
 
         // populate country option: used ISO country code
@@ -24,6 +26,18 @@ public class Student {
         countryOptions.put("IN", "India");
         countryOptions.put("US", "United States of America");
 
+    }
+
+    public void setCountryOptions(LinkedHashMap<String, String> countryOptions) {
+        this.countryOptions = countryOptions;
+    }
+
+    public String[] getOperatingSystems() {
+        return operatingSystems;
+    }
+
+    public void setOperatingSystems(String[] operatingSystems) {
+        this.operatingSystems = operatingSystems;
     }
 
     public String getFavouriteLanguage() {
