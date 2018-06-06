@@ -10,7 +10,7 @@ import soft.dev.academy.springmvc.entity.Student;
 @RequestMapping("/student")
 public class StudentController {
 
-    @RequestMapping("/shwoForm")
+    @RequestMapping("/showForm")
     public String showForm(Model theModel){
 
         // create a studne object
