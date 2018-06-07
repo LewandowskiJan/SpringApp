@@ -7,13 +7,15 @@
   Time: 20:26
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Customer Registration Form</title>
 
     <style>
-        .error {color:red}
+        .error {
+            color: red
+        }
     </style>
 
 </head>
@@ -27,6 +29,11 @@
     <br><br>
     Last name (*): <form:input path="lastName"/>
     <form:errors path="lastName" cssClass="error"/>
+
+    <br><br>
+
+    Free passes: <form:input path="freePasses"/>
+    <form:errors path="freePasses" cssClass="error"/>
 
     <br><br>
 

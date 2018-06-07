@@ -21,7 +21,7 @@ public class CustomerController {
     // resolve issue for our validation
 
     @InitBinder
-    public void initBinder(WebDataBinder dataBinder) {
+    public void initBinder(WebDataBinder dataBinder){
 
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 
@@ -30,7 +30,7 @@ public class CustomerController {
 
 
     @RequestMapping("/showForm")
-    public String showForm(Model theModel) {
+    public String showForm(Model theModel){
 
         theModel.addAttribute("customer", new Customer());
 
@@ -40,11 +40,11 @@ public class CustomerController {
     @RequestMapping("/processForm")
     public String processForm(
             @Valid @ModelAttribute("customer") Customer theCustomer,
-            BindingResult theBindingResult) {
+            BindingResult theBindingResult){
 
-        System.out.println("Last name: |" + theCustomer.getLastName() + "|");
+        System.out.println("Last name: |" + theCustomer.getLastName()+ "|");
         if (theBindingResult.hasErrors()) {
-            return "customer-form";
+          return "customer-form";
         } else {
             return "customer-confirmation";
         }
