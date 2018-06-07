@@ -19,6 +19,7 @@
     First name: <form:input path="firstName"/>
     <br><br>
     Last name: <form:input path="lastName"/>
+
     <br><br>
 
     Country:
