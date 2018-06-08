@@ -17,8 +17,7 @@ public class CourseCodeConstraintValidator implements ConstraintValidator<Course
 
         boolean result;
 
-        if (theCode != null){
-
+        if (theCode != null) {
             result = theCode.startsWith(coursePrefix);
         } else {
             result = true;
