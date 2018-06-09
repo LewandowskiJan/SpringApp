@@ -1,4 +1,4 @@
-package soft.dev.academy.hibernatedemo.jdbc;
+package soft.dev.academy.hibernate.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
