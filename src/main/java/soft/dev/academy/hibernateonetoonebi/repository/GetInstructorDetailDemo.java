@@ -37,14 +37,16 @@ public class GetInstructorDetailDemo {
             // print the associated instructor
             System.out.println("the associated instructor: " + tempInstructorDetail.getInstructor());
 
-
-
             // commit transaction
             session.getTransaction().commit();
 
             System.out.println("Done!");
+        } catch (Exception exc) {
+            exc.printStackTrace();
 
         } finally {
+            
+            session.close();
             factory.close();
         }
 
