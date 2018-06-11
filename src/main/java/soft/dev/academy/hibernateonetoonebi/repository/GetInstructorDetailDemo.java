@@ -1,13 +1,13 @@
-package soft.dev.academy.hibernateonetoone.repository;
+package soft.dev.academy.hibernateonetoonebi.repository;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import soft.dev.academy.hibernateonetoone.entity.Instructor;
-import soft.dev.academy.hibernateonetoone.entity.InstructorDetail;
+import soft.dev.academy.hibernateonetoonebi.entity.Instructor;
+import soft.dev.academy.hibernateonetoonebi.entity.InstructorDetail;
 
 
-public class DeleteDemo {
+public class GetInstructorDetailDemo {
 
     public static void main(String[] args) {
 
@@ -26,20 +26,18 @@ public class DeleteDemo {
             // start a transaction
             session.beginTransaction();
 
-            // get instructor by primary key / id
-            int theId = 1;
-            Instructor tempInstructor = session.get(Instructor.class, theId);
+            // get the instructor detail object
+            int theId = 2;
+            InstructorDetail tempInstructorDetail =
+                    session.get(InstructorDetail.class, theId);
 
-            System.out.println("Found instructor: " + tempInstructor);
+            // print the instructor detail
+            System.out.println("tempInstructorDetail: " + tempInstructorDetail);
 
-            //delete the instructors
-            if (tempInstructor != null) {
-                System.out.println("Deleting: " + tempInstructor);
+            // print the associated instructor
+            System.out.println("the associated instructor: " + tempInstructorDetail.getInstructor());
 
-                // Note: will ALSO delete associated "details" object
-                // because of CascadeType.ALL
-                session.delete(tempInstructor);
-            }
+
 
             // commit transaction
             session.getTransaction().commit();

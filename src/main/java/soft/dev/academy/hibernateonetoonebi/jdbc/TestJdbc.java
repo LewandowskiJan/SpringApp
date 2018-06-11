@@ -1,4 +1,4 @@
-package soft.dev.academy.hibernateonetoone.jdbc;
+package soft.dev.academy.hibernateonetoonebi.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
