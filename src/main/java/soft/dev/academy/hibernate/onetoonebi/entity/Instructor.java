@@ -1,4 +1,4 @@
-package soft.dev.academy.hibernateonetoonebi.entity;
+package soft.dev.academy.hibernate.onetoonebi.entity;
 
 import javax.persistence.*;
 

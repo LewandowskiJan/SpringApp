@@ -1,10 +1,10 @@
-package soft.dev.academy.hibernateonetooneuni.repository;
+package soft.dev.academy.hibernate.onetooneuni.repository;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import soft.dev.academy.hibernateonetooneuni.entity.Instructor;
-import soft.dev.academy.hibernateonetooneuni.entity.InstructorDetail;
+import soft.dev.academy.hibernate.onetooneuni.entity.Instructor;
+import soft.dev.academy.hibernate.onetooneuni.entity.InstructorDetail;
 
 
 public class CreateDemo {

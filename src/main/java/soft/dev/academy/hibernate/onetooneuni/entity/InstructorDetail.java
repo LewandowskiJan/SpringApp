@@ -1,4 +1,4 @@
-package soft.dev.academy.hibernateonetoonebi.entity;
+package soft.dev.academy.hibernate.onetooneuni.entity;
 
 import javax.persistence.*;
 
@@ -29,22 +29,6 @@ public class InstructorDetail {
 
     @Column(name = "hobby")
     private String hobby;
-
-
-    // add new field for instructor (also add getter/setter)
-
-    @OneToOne(mappedBy = "instructorDetail",
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    private Instructor instructor;
-
-
-    public Instructor getInstructor() {
-        return instructor;
-    }
-
-    public void setInstructor(Instructor instructor) {
-        this.instructor = instructor;
-    }
 
     public InstructorDetail() {
     }
