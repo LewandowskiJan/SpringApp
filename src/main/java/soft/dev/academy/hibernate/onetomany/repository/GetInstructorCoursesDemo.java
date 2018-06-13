@@ -32,18 +32,11 @@ public class GetInstructorCoursesDemo {
             int theId = 1;
             Instructor tempInstructor = session.get(Instructor.class, theId);
 
-            // create some courses
-            Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");
-            Course tempCourse2 = new Course("The Pinball Masterclass");
+            System.out.println("Instructor: " + tempInstructor);
 
-            // add courses to instructor
-            tempInstructor.add(tempCourse1);
-            tempInstructor.add(tempCourse2);
+           // get course for instructor
+            System.out.println("Courses: " + tempInstructor.getCourses());
 
-            // save the courses
-            session.save(tempCourse1);
-            session.save(tempCourse2);
-            
             // commit transaction
             session.getTransaction().commit();
 
