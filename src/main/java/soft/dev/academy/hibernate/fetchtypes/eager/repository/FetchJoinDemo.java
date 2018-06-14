@@ -1,5 +1,7 @@
 package soft.dev.academy.hibernate.fetchtypes.eager.repository;
 
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -8,7 +10,7 @@ import soft.dev.academy.hibernate.fetchtypes.eager.entity.Instructor;
 import soft.dev.academy.hibernate.fetchtypes.eager.entity.InstructorDetail;
 
 
-public class EagerLazyDemo {
+public class FetchJoinDemo {
 
     public static void main(String[] args) {
 
@@ -28,13 +30,20 @@ public class EagerLazyDemo {
             // start a transaction
             session.beginTransaction();
 
+            // option 2: Hibernate query with HQL
+
             // get the instructor from db
             int theId = 1;
-            Instructor tempInstructor = session.get(Instructor.class, theId);
 
-            System.out.println("\n\nInstructor: " + tempInstructor + "\n\n");
+            Query<Instructor> query = session.createQuery("select i from Instructor i "
+                    + "JOIN FETCH i.courses "
+                    + "where i.id=:theInstructorId", Instructor.class);
 
-            System.out.println("\n\nCourses: " + tempInstructor.getCourses()+ "\n\n");
+            // set parameter on query
+            query.setParameter("theInstructorId", theId);
+
+            // execute query and get instructor
+            Instructor tempInstructor = query.getSingleResult();
 
             // commit transaction
             session.getTransaction().commit();
@@ -43,10 +52,6 @@ public class EagerLazyDemo {
             session.close();
 
             System.out.println("The session is now closed! \n");
-
-            // option 1: call getter method while session is open
-
-
 
 
             // get course for instructor
