@@ -36,13 +36,11 @@ public class Course {
     private List<Review> reviews;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            mappedBy = "instructor",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "course_student",
             joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id")
-    )
+            inverseJoinColumns = @JoinColumn(name = "student_id"))
     private List<Student> students;
 
     public Course() {
