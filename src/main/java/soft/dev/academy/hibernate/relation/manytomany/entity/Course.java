@@ -35,7 +35,14 @@ public class Course {
     @JoinColumn(name = "course_id")
     private List<Review> reviews;
 
-
+    @ManyToMany(fetch = FetchType.LAZY,
+            mappedBy = "instructor",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name = "course_student",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
     private List<Student> students;
 
     public Course() {
@@ -80,9 +87,9 @@ public class Course {
 
     // add a convenience method
 
-    public void addReview(Review theReview){
+    public void addReview(Review theReview) {
 
-        if (reviews == null){
+        if (reviews == null) {
             reviews = new ArrayList<>();
         }
 
@@ -99,9 +106,9 @@ public class Course {
 
     // add a convenience method
 
-    public void addStudent(Student theStudent){
+    public void addStudent(Student theStudent) {
 
-        if (students == null){
+        if (students == null) {
             students = new ArrayList<>();
         }
 
